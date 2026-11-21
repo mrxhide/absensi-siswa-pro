@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-primary: #0F4C81;
+  --color-primary-hover: #0C3D68;
+  --color-primary-light: #EFF6FF;
+
+  --color-bg-app: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-border-subtle: #E2E8F0;
+  --color-text-main: #0F172A;
+  --color-text-muted: #64748B;
+
+  --color-status-h-text: #15803D;
+  --color-status-h-bg: #DCFCE7;
+  --color-status-t-text: #C2410C;
+  --color-status-t-bg: #FFEDD5;
+  --color-status-s-text: #1D4ED8;
+  --color-status-s-bg: #DBEAFE;
+  --color-status-i-text: #A16207;
+  --color-status-i-bg: #FEF9C3;
+  --color-status-a-text: #B91C1C;
+  --color-status-a-bg: #FEE2E2;
+}
+
+@layer base {
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-app);
+    color: var(--color-text-main);
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .font-mono-num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background-color: #FFFFFF !important;
+    color: #0F172A !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-page-break-after {
+    break-after: page;
+    page-break-after: always;
+  }
+}
